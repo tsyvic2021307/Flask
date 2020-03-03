@@ -1,1 +1,3 @@
 flask
+BS4
+requests
