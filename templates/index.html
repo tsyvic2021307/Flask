@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Flasks</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <h1>Cry</h1>
+        <img src="https://media.giphy.com/media/3og0IEXRvwMN0cLSaQ/giphy.gif" alt="Chaos Pendulum" style="height:100%; width:auto;">
+
+        <h2>Minimum Price: ${{mini}} | Maximum Price: ${{maxi}} | Average Price: ${{ave}}</h2>
+
+        <table style="width:100%" border="1" rules="all">
+            <tr style="background-color: darkgrey; font-size: 20px;">
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+            {%for i in range(0, len)%} 
+            <tr>
+                <td class="item_title"><a style="text-decoration:none" href="{{items[i]['url']}}" target="_blank">{{items[i]['title']}}</a></td>
+                <td><span class="item_price">{{items[i]['price']}}</span></td>
+            </tr>
+            {%endfor%}
+        </table>
+    </body>
+</html>
