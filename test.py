@@ -1,8 +1,5 @@
 import scraper
 
-def test_scrape1():
-    output = scraper.scrape("nothing")
-    assert output == None
 
 def test_stripMoney():
     assert scraper.stripMoney("$3") == 3
