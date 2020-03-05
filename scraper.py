@@ -41,7 +41,13 @@ def process(fulllist):
     return goodlist
 
 def stripMoney(val):
-    price = Decimal(val.lstrip("$")).quantize(TWOPLACES)
+    if '-' in val:
+        sep = '-'
+        val = val.split(sep, 1)[0]
+    a = val.lstrip('$')
+    b = a.replace(',', '')
+    print(b)
+    price = Decimal(b).quantize(TWOPLACES)
     return price
 
 def priceProcess(theList):
@@ -50,12 +56,15 @@ def priceProcess(theList):
     ave = 0
     prices = []
     for item in theList:
-        price = stripMoney(item["price"])
-        if price < mini:
-            mini = price
-        if price > maxi:
-            maxi = price
-        prices.append(price)
+        try:
+            price = stripMoney(item["price"])
+            if price < mini:
+                mini = price
+            if price > maxi:
+                maxi = price
+            prices.append(price)
+        except:
+            print(item)
     ave = mean(prices).quantize(TWOPLACES)
     return mini, maxi, ave
 
