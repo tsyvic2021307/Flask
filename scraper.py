@@ -46,7 +46,6 @@ def stripMoney(val):
         val = val.split(sep, 1)[0]
     a = val.lstrip('$')
     b = a.replace(',', '')
-    print(b)
     price = Decimal(b).quantize(TWOPLACES)
     return price
 
